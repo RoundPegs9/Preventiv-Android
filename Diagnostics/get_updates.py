@@ -39,7 +39,7 @@ def main():
 
     root = init().find_element_by_id("ember60")
 
-    init().find_element_by_id("ember66").screenshot("Images/"+ TIME.split(" ")[0] +".png")
+    init().find_element_by_id("ember66").screenshot("C:/Users/qasim/Desktop/Exigence/COVID-19/CoronaBluetooth/Diagnostics/Images/"+ TIME.split(" ")[0] +".png")
 
     data = root.text.split("\n")[1:100]
 
