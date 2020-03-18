@@ -1,156 +1,156 @@
-Country,2020-03-18 04:00,2020-03-18 04:02
-Afghanistan,22,22
-Albania,55,55
-Algeria,60,60
-Andorra,39,39
-Antigua and Barbuda,1,1
-Argentina,79,79
-Armenia,78,78
-Aruba,3,3
-Australia,452,452
-Austria,1332,1332
-Azerbaijan,28,28
-Bahrain,242,242
-Bangladesh,10,10
-Barbados,2,2
-Belarus,36,36
-Belgium,1243,1243
-Benin,1,1
-Bhutan,1,1
-Bolivia,11,11
-Bosnia and Herzegovina,34,34
-Brazil,321,321
-Brunei,56,56
-Bulgaria,81,81
-Burkina Faso,15,15
-Cambodia,33,33
-Cameroon,10,10
-Canada,596,596
-Central African Republic,1,1
-Chile,201,201
-China,81086,81086
-Colombia,65,65
-Congo (Brazzaville),1,1
-Congo (Kinshasa),3,3
-Costa Rica,50,50
-Cote d'Ivoire,5,5
-Croatia,69,69
-Cruise Ship,696,696
-Cuba,5,5
-Cyprus,49,49
-Czechia,434,434
-Denmark,1024,1024
-Dominican Republic,21,21
-Ecuador,111,111
-Egypt,196,196
-Equatorial Guinea,3,3
-Estonia,225,225
-Eswatini,1,1
-Ethiopia,5,5
-Finland,321,321
-France,7695,7695
-French Guiana,11,11
-Gabon,1,1
-Gambia,1,1
-Georgia,34,34
-Germany,9360,9360
-Ghana,7,7
-Greece,387,387
-Greenland,1,1
-Guam,5,5
-Guatemala,6,6
-Guinea,1,1
-Guyana,7,7
-Holy See,1,1
-Honduras,8,8
-Hungary,50,50
-Iceland,247,247
-India,142,142
-Indonesia,172,172
-Iran,16169,16169
-Iraq,154,154
-Ireland,292,292
-Israel,337,337
-Italy,31506,31506
-Jamaica,12,12
-Japan,882,882
-Jordan,40,40
-Kazakhstan,33,33
-Kenya,3,3
-"Korea, South",8413,8413
-Kosovo,2,2
-Kuwait,130,130
-Kyrgyzstan,3,3
-Latvia,60,60
-Lebanon,120,120
-Liberia,2,2
-Liechtenstein,19,19
-Lithuania,25,25
-Luxembourg,140,140
-Malaysia,673,673
-Maldives,13,13
-Malta,38,38
-Martinique,16,16
-Mauritania,1,1
-Mayotte,3,3
-Mexico,82,82
-Moldova,30,30
-Monaco,7,7
-Mongolia,5,5
-Montenegro,2,2
-Morocco,44,44
-Namibia,2,2
-Nepal,1,1
-Netherlands,1710,1710
-New Zealand,20,20
-Nigeria,3,3
-North Macedonia,31,31
-Norway,1471,1471
-Oman,24,24
-Pakistan,237,237
-Panama,69,69
-Paraguay,9,9
-Peru,117,117
-Philippines,187,187
-Poland,238,238
-Portugal,448,448
-Qatar,442,442
-Reunion,9,9
-Romania,217,217
-Russia,114,114
-Rwanda,7,7
-Saint Lucia,2,2
-Saint Vincent and the Grenadines,1,1
-San Marino,119,119
-Saudi Arabia,171,171
-Senegal,26,26
-Serbia,72,72
-Seychelles,4,4
-Singapore,266,266
-Slovakia,97,97
-Slovenia,275,275
-Somalia,1,1
-South Africa,85,85
-Spain,11826,11826
-Sri Lanka,44,44
-Sudan,1,1
-Suriname,1,1
-Sweden,1196,1196
-Switzerland,2700,2700
-Taiwan,100,100
-Tanzania,1,1
-Thailand,177,177
-The Bahamas,1,1
-The Gambia,1,1
-Togo,1,1
-Trinidad and Tobago,5,5
-Tunisia,24,24
-Turkey,98,98
-US,6496,6496
-Ukraine,14,14
-United Arab Emirates,113,113
-United Kingdom,1960,1960
-Uruguay,29,29
-Uzbekistan,11,11
-Venezuela,33,33
-Vietnam,66,66
+Country,2020-03-18 04:00,2020-03-18 04:02,2020-03-18 04:26
+Afghanistan,22,22,22
+Albania,55,55,55
+Algeria,60,60,60
+Andorra,39,39,39
+Antigua and Barbuda,1,1,1
+Argentina,79,79,79
+Armenia,78,78,78
+Aruba,3,3,3
+Australia,452,452,452
+Austria,1332,1332,1332
+Azerbaijan,28,28,28
+Bahrain,242,242,242
+Bangladesh,10,10,10
+Barbados,2,2,2
+Belarus,36,36,36
+Belgium,1243,1243,1243
+Benin,1,1,1
+Bhutan,1,1,1
+Bolivia,11,11,11
+Bosnia and Herzegovina,34,34,34
+Brazil,321,321,321
+Brunei,56,56,56
+Bulgaria,81,81,81
+Burkina Faso,15,15,15
+Cambodia,33,33,33
+Cameroon,10,10,10
+Canada,596,596,596
+Central African Republic,1,1,1
+Chile,201,201,201
+China,81086,81086,81086
+Colombia,65,65,65
+Congo (Brazzaville),1,1,1
+Congo (Kinshasa),3,3,3
+Costa Rica,50,50,50
+Cote d'Ivoire,5,5,5
+Croatia,69,69,69
+Cruise Ship,696,696,696
+Cuba,5,5,5
+Cyprus,49,49,49
+Czechia,434,434,434
+Denmark,1024,1024,1024
+Dominican Republic,21,21,21
+Ecuador,111,111,111
+Egypt,196,196,196
+Equatorial Guinea,3,3,3
+Estonia,225,225,225
+Eswatini,1,1,1
+Ethiopia,5,5,5
+Finland,321,321,321
+France,7695,7695,7695
+French Guiana,11,11,11
+Gabon,1,1,1
+Gambia,1,1,1
+Georgia,34,34,34
+Germany,9360,9360,9360
+Ghana,7,7,7
+Greece,387,387,387
+Greenland,1,1,1
+Guam,5,5,5
+Guatemala,6,6,6
+Guinea,1,1,1
+Guyana,7,7,7
+Holy See,1,1,1
+Honduras,8,8,8
+Hungary,50,50,50
+Iceland,247,247,247
+India,142,142,142
+Indonesia,172,172,172
+Iran,16169,16169,16169
+Iraq,154,154,154
+Ireland,292,292,292
+Israel,337,337,337
+Italy,31506,31506,31506
+Jamaica,12,12,12
+Japan,882,882,882
+Jordan,40,40,40
+Kazakhstan,33,33,33
+Kenya,3,3,3
+"Korea, South",8413,8413,8413
+Kosovo,2,2,2
+Kuwait,130,130,130
+Kyrgyzstan,3,3,3
+Latvia,60,60,60
+Lebanon,120,120,120
+Liberia,2,2,2
+Liechtenstein,19,19,19
+Lithuania,25,25,25
+Luxembourg,140,140,140
+Malaysia,673,673,673
+Maldives,13,13,13
+Malta,38,38,38
+Martinique,16,16,16
+Mauritania,1,1,1
+Mayotte,3,3,3
+Mexico,82,82,82
+Moldova,30,30,30
+Monaco,7,7,7
+Mongolia,5,5,5
+Montenegro,2,2,2
+Morocco,44,44,44
+Namibia,2,2,2
+Nepal,1,1,1
+Netherlands,1710,1710,1710
+New Zealand,20,20,20
+Nigeria,3,3,3
+North Macedonia,31,31,31
+Norway,1471,1471,1471
+Oman,24,24,24
+Pakistan,237,237,237
+Panama,69,69,69
+Paraguay,9,9,9
+Peru,117,117,117
+Philippines,187,187,187
+Poland,238,238,238
+Portugal,448,448,448
+Qatar,442,442,442
+Reunion,9,9,9
+Romania,217,217,217
+Russia,114,114,114
+Rwanda,7,7,7
+Saint Lucia,2,2,2
+Saint Vincent and the Grenadines,1,1,1
+San Marino,119,119,119
+Saudi Arabia,171,171,171
+Senegal,26,26,26
+Serbia,72,72,72
+Seychelles,4,4,4
+Singapore,266,266,266
+Slovakia,97,97,97
+Slovenia,275,275,275
+Somalia,1,1,1
+South Africa,85,85,85
+Spain,11826,11826,11826
+Sri Lanka,44,44,44
+Sudan,1,1,1
+Suriname,1,1,1
+Sweden,1196,1196,1196
+Switzerland,2700,2700,2700
+Taiwan,100,100,100
+Tanzania,1,1,1
+Thailand,177,177,177
+The Bahamas,1,1,1
+The Gambia,1,1,1
+Togo,1,1,1
+Trinidad and Tobago,5,5,5
+Tunisia,24,24,24
+Turkey,98,98,98
+US,6496,6496,6496
+Ukraine,14,14,14
+United Arab Emirates,113,113,113
+United Kingdom,1960,1960,1960
+Uruguay,29,29,29
+Uzbekistan,11,11,11
+Venezuela,33,33,33
+Vietnam,66,66,66
