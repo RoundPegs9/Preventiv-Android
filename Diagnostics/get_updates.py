@@ -52,7 +52,7 @@ def main():
 
     case = collections.OrderedDict(sorted(case.items()))
     case["Total Count"] = total_cases
-    df = pd.read_csv("Confirmed_case.csv")
+    df = pd.read_csv("C:/Users/qasim/Desktop/Exigence/COVID-19/CoronaBluetooth/Diagnostics/Confirmed_case.csv")
 
     df_temp = pd.DataFrame.from_dict(case, orient="index", columns=[':'.join(TIME.split(":")[:-1])]).reset_index()
 
@@ -62,7 +62,7 @@ def main():
 
     df_cum = pd.concat(df_cum, axis=1)
 
-    df_cum.to_csv("Confirmed_case.csv", index=False)
+    df_cum.to_csv("C:/Users/qasim/Desktop/Exigence/COVID-19/CoronaBluetooth/Diagnostics/Confirmed_case.csv", index=False)
     
     return {"CODE" : "200", "Total Cases" : total_cases, "TIME" : TIME}
 
