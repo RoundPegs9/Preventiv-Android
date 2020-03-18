@@ -24,8 +24,8 @@ def init():
     time.sleep(3)
     return br
 
-if __name__ == "__main__":
 
+def main():
     root = init().find_element_by_id("ember6")
 
     data = root.text.split("\n")[2:]
@@ -51,7 +51,7 @@ if __name__ == "__main__":
         case[country] = cases
 
     case = collections.OrderedDict(sorted(case.items()))
-
+    case["Total Count"] = total_cases
     df = pd.read_csv("Confirmed_case.csv")
 
     df_temp = pd.DataFrame.from_dict(case, orient="index", columns=[':'.join(TIME.split(":")[:-1])]).reset_index()
@@ -64,4 +64,8 @@ if __name__ == "__main__":
 
     df_cum.to_csv("Confirmed_case.csv", index=False)
     
-    print("Successfully updated Cofirmed_case.csv file")
+    return {"CODE" : "200", "Total Cases" : total_cases, "TIME" : TIME}
+
+if __name__ == "__main__":
+    status = main()
+    print(status)
