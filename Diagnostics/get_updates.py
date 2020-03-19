@@ -29,18 +29,18 @@ def extract_num(string):
     return int(string.replace(",", ""))
 
 def main():
-    data = init().find_element_by_id("ember21").text.split("\n")[:6]
+    br = init()
+    data = br.find_element_by_id("ember21").text.split("\n")[:6]
     logistics = {"CONFIRMED" : extract_num(data[1]), "DEATHS" : extract_num(data[3]), "RECOVERED" : extract_num(data[5])}
 
-    data = init().find_element_by_id("ember107").click()
+    data = br.find_element_by_id("ember107").click()
 
     TIME = str(datetime.now())
     TIME = ':'.join(TIME.split(":")[:-1])
 
-    root = init().find_element_by_id("ember60")
-    time.sleep(3)
+    root = br.find_element_by_id("ember60")
 
-    init().find_element_by_id("ember66").screenshot("C:/Users/qasim/Desktop/Exigence/COVID-19/CoronaBluetooth/Diagnostics/Images/"+ TIME.split(" ")[0] +".png")
+    br.find_element_by_id("ember66").screenshot("C:/Users/qasim/Desktop/Exigence/COVID-19/CoronaBluetooth/Diagnostics/Images/"+ TIME.split(" ")[0] +".png")
 
     data = root.text.split("\n")[1:100]
 
