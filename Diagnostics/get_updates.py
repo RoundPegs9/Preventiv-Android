@@ -38,6 +38,7 @@ def main():
     TIME = ':'.join(TIME.split(":")[:-1])
 
     root = init().find_element_by_id("ember60")
+    time.sleep(3)
 
     init().find_element_by_id("ember66").screenshot("C:/Users/qasim/Desktop/Exigence/COVID-19/CoronaBluetooth/Diagnostics/Images/"+ TIME.split(" ")[0] +".png")
 
