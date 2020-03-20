@@ -8,7 +8,7 @@ import time
 from datetime import datetime
 
 URL_pre = "https://github.com/login"
-URL_post = "https://github.com/SaiG18/CoronaBluetooth/upload/master/Diagnostics"
+URL_post = "https://github.com/QasimWani/Track-COVID/upload/master"
 
 def init():
     chrome_options = webdriver.ChromeOptions()
@@ -22,8 +22,8 @@ def init():
 
 def main():
     br = init()
-    username = br.find_element_by_id("login_field").send_keys("EMAIL@gmail.com")
-    password = br.find_element_by_id("password").send_keys("PASSWORD")
+    br.find_element_by_id("login_field").send_keys("EMAIL@gmail.com")
+    br.find_element_by_id("password").send_keys("PASSWORD")
     button = br.find_element_by_class_name("btn.btn-primary.btn-block")
     button.click()
 
