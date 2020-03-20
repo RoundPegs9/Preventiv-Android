@@ -42,7 +42,7 @@ def main():
 
     br.find_element_by_id("ember66").screenshot("C:/Users/qasim/Desktop/Exigence/COVID-19/CoronaBluetooth/Diagnostics/Images/"+ TIME.split(" ")[0] +".png")
 
-    data = root.text.split("\n")[1:100]
+    data = root.text.split("\n")[1:]
 
     case = {}
 
@@ -55,7 +55,7 @@ def main():
     case = collections.OrderedDict(sorted(case.items()))
 
     raw_data = {**logistics, **case}
-
+    raw_data = collections.OrderedDict(sorted(raw_data.items()))
     df = pd.read_csv("C:/Users/qasim/Desktop/Exigence/COVID-19/CoronaBluetooth/Diagnostics/Confirmed_case.csv")
 
     conts = list(df["Country"])
@@ -68,7 +68,7 @@ def main():
             temp = np.append(zero_fill, label)
             temp = temp[::-1]
             df.loc[curr_count] = temp
-    
+    df = df.sort_values(by=['Country'], inplace=False).reset_index(drop=True)
     df_temp = pd.DataFrame.from_dict(raw_data, orient="index", columns=[TIME]).reset_index()
 
     del df_temp["index"]
@@ -90,6 +90,7 @@ def main():
         del df_copy
     
     df_cum.to_csv("C:/Users/qasim/Desktop/Exigence/COVID-19/CoronaBluetooth/Diagnostics/Confirmed_case.csv", index=False)
+    df_cum.to_csv("C:/Users/qasim/Desktop/Exigence/Track-COVID/Track-COVID/Confirmed_case.csv", index=False) #Another git repo
     
     return {"CODE" : "200", "Total Confirmed Cases" : logistics["CONFIRMED"], "TIME" : TIME}
 
