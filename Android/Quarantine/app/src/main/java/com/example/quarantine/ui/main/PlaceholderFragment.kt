@@ -1,6 +1,7 @@
 package com.example.quarantine.ui.main
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -30,6 +31,7 @@ class PlaceholderFragment : Fragment() {
     ): View? {
         val root = inflater.inflate(R.layout.fragment_main, container, false)
         val textView: TextView = root.findViewById(R.id.section_label)
+
         pageViewModel.text.observe(this, Observer<String> {
             textView.text = it
         })
