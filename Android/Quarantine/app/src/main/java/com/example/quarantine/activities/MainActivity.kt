@@ -8,7 +8,7 @@ import androidx.viewpager.widget.ViewPager
 import androidx.appcompat.app.AppCompatActivity
 import android.widget.Toast
 import com.example.quarantine.R
-import com.example.quarantine.ui.main.tabs.SectionsPagerAdapter
+import com.example.quarantine.adapters.SectionsPagerAdapter
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
@@ -32,18 +32,15 @@ class MainActivity : AppCompatActivity() {
         fab.setOnClickListener { view ->
             Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                     .setAction("Action", null).show()
-            val current_tab_position = tabs.selectedTabPosition
-            val data = sectionsPagerAdapter.getPageTitle(current_tab_position)
-            Toast.makeText(this, data, Toast.LENGTH_SHORT).show()
         }
         onchangelistener(sectionsPagerAdapter)
 
     }
-    private fun onchangelistener(sectionsPagerAdapter:SectionsPagerAdapter) {
+    private fun onchangelistener(SPA: SectionsPagerAdapter) { //SPA = sectionsPagerAdapter
         tabs!!.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
             override fun onTabSelected(tab: TabLayout.Tab) {
                 val current_tab_position = tabs.selectedTabPosition
-                val data = sectionsPagerAdapter.getPageTitle(current_tab_position)
+                val data = SPA.getPageTitle(current_tab_position)
                 Toast.makeText(this@MainActivity, data, Toast.LENGTH_SHORT).show()
             }
             override fun onTabUnselected(tab: TabLayout.Tab) {}
