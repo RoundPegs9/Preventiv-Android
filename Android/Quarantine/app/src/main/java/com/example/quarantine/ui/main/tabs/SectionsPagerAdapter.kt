@@ -1,4 +1,4 @@
-package com.example.quarantine.ui.main
+package com.example.quarantine.ui.main.tabs
 
 import android.content.Context
 import androidx.fragment.app.Fragment

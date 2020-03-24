@@ -1,4 +1,4 @@
-package com.example.quarantine
+package com.example.quarantine.activities
 
 import android.os.Bundle
 import com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -6,18 +6,23 @@ import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.tabs.TabLayout
 import androidx.viewpager.widget.ViewPager
 import androidx.appcompat.app.AppCompatActivity
-import android.view.Menu
-import android.view.MenuItem
 import android.widget.Toast
-import androidx.fragment.app.Fragment
-import com.example.quarantine.ui.main.SectionsPagerAdapter
+import com.example.quarantine.R
+import com.example.quarantine.ui.main.tabs.SectionsPagerAdapter
+import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        val sectionsPagerAdapter = SectionsPagerAdapter(this, supportFragmentManager)
+        val sectionsPagerAdapter =
+            SectionsPagerAdapter(
+                this,
+                supportFragmentManager
+            )
+
+
         val viewPager: ViewPager = findViewById(R.id.view_pager)
         viewPager.adapter = sectionsPagerAdapter
         val tabs: TabLayout = findViewById(R.id.tabs)
@@ -31,7 +36,19 @@ class MainActivity : AppCompatActivity() {
             val data = sectionsPagerAdapter.getPageTitle(current_tab_position)
             Toast.makeText(this, data, Toast.LENGTH_SHORT).show()
         }
-
+        onchangelistener(sectionsPagerAdapter)
 
     }
+    private fun onchangelistener(sectionsPagerAdapter:SectionsPagerAdapter) {
+        tabs!!.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
+            override fun onTabSelected(tab: TabLayout.Tab) {
+                val current_tab_position = tabs.selectedTabPosition
+                val data = sectionsPagerAdapter.getPageTitle(current_tab_position)
+                Toast.makeText(this@MainActivity, data, Toast.LENGTH_SHORT).show()
+            }
+            override fun onTabUnselected(tab: TabLayout.Tab) {}
+            override fun onTabReselected(tab: TabLayout.Tab) {}
+        })
+    }
 }
+

@@ -1,4 +1,4 @@
-package com.example.quarantine.ui.main
+package com.example.quarantine.ui.main.tabs
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
