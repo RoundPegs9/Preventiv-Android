@@ -18,6 +18,7 @@ class SymptomsAdapters(var context: Context, var arrayList: ArrayList<SymptomsIt
         var listItem:SymptomsItem = arrayList.get(position)
         icons.setImageResource(listItem.icons!!)
         captions.text = listItem.caption
+
         return view
     }
 

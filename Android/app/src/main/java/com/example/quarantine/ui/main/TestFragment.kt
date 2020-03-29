@@ -56,9 +56,10 @@ class TestFragment : Fragment(), AdapterView.OnItemClickListener {
 
     private fun setDataList() : ArrayList<SymptomsItem>{
         var arrayList:ArrayList<SymptomsItem> = ArrayList();
-        arrayList.add(SymptomsItem(R.drawable.day1_reflection, "Test 1"))
-        arrayList.add(SymptomsItem(R.drawable.day2_reflection, "Test 2"))
-        arrayList.add(SymptomsItem(R.drawable.day4_reflection, "Test 3"))
+        arrayList.add(SymptomsItem(R.drawable.positive, "Tested Positive with COVID-19", "1"))
+        arrayList.add(SymptomsItem(R.drawable.negative, "Tested Negative with COVID-19", "2"))
+        arrayList.add(SymptomsItem(R.drawable.not_tested, "Not been tested yet", "3"))
+        arrayList.add(SymptomsItem(R.drawable.question, "Tested; waiting for results", "4"))
         return arrayList
     }
     companion object {
@@ -83,6 +84,6 @@ class TestFragment : Fragment(), AdapterView.OnItemClickListener {
 
     override fun onItemClick(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
         var items:SymptomsItem = arrayList!!.get(position)
-        Toast.makeText(activity?.applicationContext, items.caption, Toast.LENGTH_SHORT).show()
+        Toast.makeText(activity?.applicationContext, items.metadata, Toast.LENGTH_SHORT).show()
     }
 }

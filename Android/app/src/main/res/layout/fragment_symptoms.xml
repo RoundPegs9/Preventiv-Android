@@ -5,6 +5,7 @@
     android:id="@+id/constraintLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#99E4E9ED"
     tools:context=".ui.main.PlaceholderFragment">
 
     <GridView
@@ -14,5 +15,6 @@
         android:columnWidth="150dp"
         android:horizontalSpacing="15dp"
         android:numColumns="auto_fit"
-        android:verticalSpacing="15dp" />
+        android:verticalSpacing="15dp"
+        android:layout_margin="10dp"/>
 </LinearLayout>
