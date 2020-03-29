@@ -1,6 +1,0 @@
-<resources>
-    <string name="app_name">Quarantine</string>
-    <string name="tab_text_1">Alerts</string>
-    <string name="tab_text_2">Symptoms</string>
-    <string name="tab_text_3">Heat Map</string>
-</resources>
