@@ -18,7 +18,11 @@ struct ContentView: View {
                          Image(systemName: "house.fill")
                          Text("Home")
                  }
-             Trends()
+             Image("home")
+             .resizable()
+                 .resizable()
+                 .aspectRatio(contentMode: .fill)
+                 .padding(.top, -15)
               .tabItem {
                       Image(systemName: "chart.bar.fill")
                       Text("Trends")
@@ -28,7 +32,7 @@ struct ContentView: View {
                     Image(systemName: "globe")
                     Text("Live Map")
             }
-        }.edgesIgnoringSafeArea(.top)
+        }.edgesIgnoringSafeArea(.top).font(.headline)
     }
 }
 
