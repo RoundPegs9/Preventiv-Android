@@ -9,8 +9,17 @@
 import SwiftUI
 
 struct ContentView: View {
+    @EnvironmentObject var bluetooth: BLE
+      
     var body: some View {
-        Text("Hello, World!")
+         VStack {
+              Button(action: {
+                print("\(self.bluetooth.connected)")
+              }) {
+                   Text("check connection")
+              }
+          
+         }
     }
 }
 
