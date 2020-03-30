@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		310771BA2431863A00D0AA07 /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = 310771B92431863A00D0AA07 /* Home.swift */; };
+		310771BC2431865800D0AA07 /* Trends.swift in Sources */ = {isa = PBXBuildFile; fileRef = 310771BB2431865800D0AA07 /* Trends.swift */; };
+		310771BE2431867000D0AA07 /* Map.swift in Sources */ = {isa = PBXBuildFile; fileRef = 310771BD2431867000D0AA07 /* Map.swift */; };
 		319C599E24243BFD00418C6E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 319C599D24243BFD00418C6E /* AppDelegate.swift */; };
 		319C59A024243BFD00418C6E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 319C599F24243BFD00418C6E /* SceneDelegate.swift */; };
 		319C59A324243BFD00418C6E /* Quarantine.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 319C59A124243BFD00418C6E /* Quarantine.xcdatamodeld */; };
@@ -17,6 +20,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		310771B92431863A00D0AA07 /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
+		310771BB2431865800D0AA07 /* Trends.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Trends.swift; sourceTree = "<group>"; };
+		310771BD2431867000D0AA07 /* Map.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Map.swift; sourceTree = "<group>"; };
 		319C599A24243BFD00418C6E /* Quarantine.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Quarantine.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		319C599D24243BFD00418C6E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		319C599F24243BFD00418C6E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -39,6 +45,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		310771BF2431867500D0AA07 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
 		319C599124243BFD00418C6E = {
 			isa = PBXGroup;
 			children = (
@@ -61,11 +74,15 @@
 				319C599D24243BFD00418C6E /* AppDelegate.swift */,
 				319C599F24243BFD00418C6E /* SceneDelegate.swift */,
 				319C59A424243BFD00418C6E /* ContentView.swift */,
+				310771BB2431865800D0AA07 /* Trends.swift */,
+				310771BF2431867500D0AA07 /* Views */,
+				310771B92431863A00D0AA07 /* Home.swift */,
 				319C59A624243BFE00418C6E /* Assets.xcassets */,
 				319C59AB24243BFE00418C6E /* LaunchScreen.storyboard */,
 				319C59AE24243BFE00418C6E /* Info.plist */,
 				319C59A124243BFD00418C6E /* Quarantine.xcdatamodeld */,
 				319C59A824243BFE00418C6E /* Preview Content */,
+				310771BD2431867000D0AA07 /* Map.swift */,
 			);
 			path = Quarantine;
 			sourceTree = "<group>";
@@ -151,6 +168,9 @@
 			files = (
 				319C599E24243BFD00418C6E /* AppDelegate.swift in Sources */,
 				319C59A024243BFD00418C6E /* SceneDelegate.swift in Sources */,
+				310771BA2431863A00D0AA07 /* Home.swift in Sources */,
+				310771BE2431867000D0AA07 /* Map.swift in Sources */,
+				310771BC2431865800D0AA07 /* Trends.swift in Sources */,
 				319C59A524243BFD00418C6E /* ContentView.swift in Sources */,
 				319C59A324243BFD00418C6E /* Quarantine.xcdatamodeld in Sources */,
 			);

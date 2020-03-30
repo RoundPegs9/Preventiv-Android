@@ -9,17 +9,24 @@
 import SwiftUI
 
 struct ContentView: View {
-    @EnvironmentObject var bluetooth: BLE
+   @State private var selection = 0
       
     var body: some View {
-         VStack {
-              Button(action: {
-                print("\(self.bluetooth.connected)")
-              }) {
-                   Text("check connection")
+         TabView(selection: $selection){
+             Home()
+                 .tabItem {
+                         Image("TabBarIcon-Cancun")
+                         Text("Home")
+                 }
+             Trends()
+              .tabItem {
+                      Image("TabBarIcon-London")
+                      Text("London")
               }
-          
-         }
+             
+                
+         }//End TabView
+             .font(.headline)
     }
 }
 
