@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#99E4E9ED"
-    tools:context=".ui.main.PlaceholderFragment">
+    tools:context=".fragments.symptoms.PreQuestionnaire">
 
     <GridView
         android:id="@+id/grid_symptoms_pre_questionnaire"

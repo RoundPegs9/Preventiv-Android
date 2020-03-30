@@ -9,11 +9,12 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:id="@+id/box_holder_symptoms"
         android:padding="10dp">
     <ImageView
         android:id="@+id/icons"
-        android:layout_width="200dp"
-        android:layout_height="200dp"
+        android:layout_width="170dp"
+        android:layout_height="170dp"
         android:layout_marginLeft="5dp"
         android:layout_marginTop="0dp"
         android:src="@drawable/positive"
