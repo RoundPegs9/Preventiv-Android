@@ -28,7 +28,7 @@ struct ContentView: View {
                     Image(systemName: "globe")
                     Text("Live Map")
             }
-        }
+        }.edgesIgnoringSafeArea(.top)
     }
 }
 
