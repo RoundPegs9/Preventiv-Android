@@ -21,8 +21,13 @@ struct ContentView: View {
              Trends()
               .tabItem {
                       Image("TabBarIcon-London")
-                      Text("London")
+                      Text("Trends")
               }
+            Map()
+            .tabItem {
+                    Image("TabBarIcon-London")
+                    Text("Map")
+            }
              
                 
          }//End TabView
