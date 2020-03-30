@@ -13,6 +13,9 @@
 		310771D32431873E00D0AA07 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 310771D22431873E00D0AA07 /* Assets.xcassets */; };
 		310771D62431873E00D0AA07 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 310771D52431873E00D0AA07 /* Preview Assets.xcassets */; };
 		310771D92431873E00D0AA07 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 310771D72431873E00D0AA07 /* LaunchScreen.storyboard */; };
+		310771E22431875C00D0AA07 /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = 310771E12431875C00D0AA07 /* Home.swift */; };
+		310771E42431876400D0AA07 /* Trends.swift in Sources */ = {isa = PBXBuildFile; fileRef = 310771E32431876300D0AA07 /* Trends.swift */; };
+		310771E62431876B00D0AA07 /* Map.swift in Sources */ = {isa = PBXBuildFile; fileRef = 310771E52431876B00D0AA07 /* Map.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +27,9 @@
 		310771D52431873E00D0AA07 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		310771D82431873E00D0AA07 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		310771DA2431873E00D0AA07 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		310771E12431875C00D0AA07 /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
+		310771E32431876300D0AA07 /* Trends.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Trends.swift; sourceTree = "<group>"; };
+		310771E52431876B00D0AA07 /* Map.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Map.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +62,7 @@
 		310771CB2431873A00D0AA07 /* CoronaTrace */ = {
 			isa = PBXGroup;
 			children = (
+				310771E02431875100D0AA07 /* Views */,
 				310771CC2431873A00D0AA07 /* AppDelegate.swift */,
 				310771CE2431873A00D0AA07 /* SceneDelegate.swift */,
 				310771D02431873A00D0AA07 /* ContentView.swift */,
@@ -73,6 +80,16 @@
 				310771D52431873E00D0AA07 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		310771E02431875100D0AA07 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				310771E12431875C00D0AA07 /* Home.swift */,
+				310771E32431876300D0AA07 /* Trends.swift */,
+				310771E52431876B00D0AA07 /* Map.swift */,
+			);
+			name = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -147,7 +164,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				310771CD2431873A00D0AA07 /* AppDelegate.swift in Sources */,
+				310771E42431876400D0AA07 /* Trends.swift in Sources */,
 				310771CF2431873A00D0AA07 /* SceneDelegate.swift in Sources */,
+				310771E22431875C00D0AA07 /* Home.swift in Sources */,
+				310771E62431876B00D0AA07 /* Map.swift in Sources */,
 				310771D12431873A00D0AA07 /* ContentView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
