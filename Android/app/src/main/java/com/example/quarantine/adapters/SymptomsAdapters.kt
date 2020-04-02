@@ -9,11 +9,12 @@ import android.widget.TextView
 import com.example.quarantine.R
 import com.example.quarantine.models.symptoms.SymptomsItem
 
-class SymptomsAdapters(var context: Context, var arrayList: ArrayList<SymptomsItem>): BaseAdapter() {
+class SymptomsAdapters(var context: Context, var arrayList: ArrayList<SymptomsItem>, private val inflater:Int, private val icons:Int, private val caption:Int): BaseAdapter() {
     override fun getView(position: Int, convertView: View?, parent: ViewGroup?): View {
-        var view:View = View.inflate(context, R.layout.card_view_symptoms_1, null)
-        var icons:ImageView = view.findViewById(R.id.icons)
-        var captions:TextView = view.findViewById(R.id.caption)
+
+        var view:View = View.inflate(context, inflater, null)
+        var icons:ImageView = view.findViewById(icons)
+        var captions:TextView = view.findViewById(caption)
 
         var listItem:SymptomsItem = arrayList.get(position)
         icons.setImageResource(listItem.icons!!)
@@ -23,7 +24,7 @@ class SymptomsAdapters(var context: Context, var arrayList: ArrayList<SymptomsIt
     }
 
     override fun getItem(position: Int): Any {
-        return arrayList.get(position)
+        return arrayList[position]
     }
 
     override fun getItemId(position: Int): Long {

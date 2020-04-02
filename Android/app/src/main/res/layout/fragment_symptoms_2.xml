@@ -5,16 +5,16 @@
     android:id="@+id/constraintLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_marginTop="20dp"
-    tools:context=".fragments.symptoms.PreQuestionnaire">
+    android:layout_marginTop="10dp"
+    tools:context=".fragments.symptoms.MainQuestions">
 
     <GridView
-        android:id="@+id/grid_symptoms_pre_questionnaire"
+        android:id="@+id/grid_symptoms_main_questions"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:columnWidth="150dp"
         android:horizontalSpacing="15dp"
         android:numColumns="auto_fit"
-        android:verticalSpacing="15dp"
+        android:verticalSpacing="20dp"
         android:layout_margin="10dp"/>
 </LinearLayout>

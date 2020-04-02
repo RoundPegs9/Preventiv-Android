@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardCornerRadius="8dp"
+    app:cardElevation="5dp"
+    app:cardPreventCornerOverlap="true">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/box_holder_symptoms"
+        android:padding="10dp">
+
+        <ImageView
+            android:id="@+id/icons_symptoms"
+            android:layout_width="130dp"
+            android:layout_height="130dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="0dp"
+            android:layout_centerHorizontal="true"
+            android:contentDescription="graph of the symptom"
+            android:src="@drawable/positive"/>
+        <TextView
+            android:id="@+id/caption_symptoms"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Dry Coughs"
+            android:layout_below="@id/icons_symptoms"
+            android:layout_centerInParent="true"
+            android:textAllCaps="false"
+            android:gravity="center"
+            android:textStyle="bold"
+            android:padding="5dp"
+            android:layout_marginTop="10dp"/>
+    </RelativeLayout>
+
+</androidx.cardview.widget.CardView>

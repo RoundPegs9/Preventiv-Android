@@ -4,22 +4,23 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activities.MainActivity">
+    android:background="#99E4E9ED"
+    tools:context=".activities.SymptomsSurvey">
 
-    <androidx.viewpager.widget.ViewPager
-        android:id="@+id/view_pager"
+    <FrameLayout
+        android:id="@+id/fragmentContainer_symptoms"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior">
-    </androidx.viewpager.widget.ViewPager>
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"/>
 
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:id="@+id/appbar_symptoms"
         android:theme="@style/AppTheme.AppBarOverlay">
 
         <TextView
-            android:id="@+id/title"
+            android:id="@+id/symptoms_activity_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="center"
@@ -28,21 +29,29 @@
             android:text="@string/app_name"
             android:textAppearance="@style/TextAppearance.Widget.AppCompat.Toolbar.Title" />
 
-        <com.google.android.material.tabs.TabLayout
-            android:id="@+id/tabs"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="?attr/colorPrimary" />
     </com.google.android.material.appbar.AppBarLayout>
+<!--<TextView-->
+<!--    android:id="@+id/symptoms_activity_description"-->
+<!--    android:layout_width="match_parent"-->
+<!--    android:layout_height="wrap_content"-->
+<!--    android:layout_marginTop="80dp"-->
+<!--    android:textAllCaps="false"-->
+<!--    android:text="Self Diagnosis of COVID-19"-->
+<!--    android:textAlignment="center"-->
+<!--    android:textSize="30sp"-->
+<!--    android:textColor="@color/design_default_color_on_secondary"-->
+<!--    android:gravity="center_horizontal" />-->
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/fab"
+        android:id="@+id/fab_sym"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|end"
         android:layout_margin="@dimen/fab_margin"
-        app:layout_anchor="@+id/view_pager"
+        app:layout_anchor="@+id/fragmentContainer_symptoms"
         app:layout_anchorGravity="end|bottom"
         app:srcCompat="@android:drawable/ic_dialog_info" />
+
+
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
