@@ -9,6 +9,7 @@ import androidx.viewpager.widget.ViewPager
 import androidx.appcompat.app.AppCompatActivity
 import com.example.quarantine.R
 import com.example.quarantine.adapters.SectionsPagerAdapter
+import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
 
@@ -20,8 +21,12 @@ class MainActivity : AppCompatActivity() {
                 this,
                 this.supportFragmentManager
             )
-//        val bundle: Bundle? = intent.extras
+        val bundle: Bundle? = intent.extras
+        val confidence = bundle?.getDouble("confidence")
+        Log.i("received", confidence.toString())
+
         val viewPager: ViewPager = findViewById(R.id.view_pager)
+
         viewPager.adapter = sectionsPagerAdapter
         val tabs: TabLayout = findViewById(R.id.tabs)
         tabs.setupWithViewPager(viewPager)

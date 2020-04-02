@@ -1,5 +1,7 @@
 package com.example.quarantine.fragments.symptoms
 
+import android.content.Intent
+import android.os.Build
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -8,10 +10,14 @@ import android.view.ViewGroup
 import android.widget.AdapterView
 import android.widget.GridView
 import android.widget.Toast
+import androidx.core.view.get
 import androidx.fragment.app.Fragment
 import com.example.quarantine.R
+import com.example.quarantine.activities.MainActivity
 import com.example.quarantine.adapters.SymptomsAdapters
 import com.example.quarantine.models.symptoms.SymptomsItem
+import com.google.android.material.floatingactionbutton.FloatingActionButton
+import kotlinx.android.synthetic.main.activity_symptoms.*
 
 
 /**
@@ -40,6 +46,20 @@ class MainQuestions : Fragment(), AdapterView.OnItemClickListener {
         symptomsAdapters = activity?.applicationContext?.let { SymptomsAdapters(it, arrayList!!, R.layout.card_view_symptoms_2, R.id.icons_symptoms, R.id.caption_symptoms) }
         gridView?.adapter = symptomsAdapters
         gridView?.onItemClickListener = this
+
+        val fab:FloatingActionButton? = activity?.fab_sym
+        Log.i("fab", fab.toString())
+        fab?.setOnClickListener {
+            var confidence:Double = 0.0
+            symptomsArray.forEach {
+                confidence += it
+            }
+
+            var intent: Intent = Intent(context, MainActivity::class.java)
+            intent.putExtra("test", confidence)
+            Log.i("score", confidence.toString())
+            startActivity(intent)
+        }
         return root
     }
 
@@ -66,20 +86,34 @@ class MainQuestions : Fragment(), AdapterView.OnItemClickListener {
          */
         fun newInstance() = MainQuestions()
     }
+    private fun manipulateSymptomsArray(score:Double) {
+        if (symptomsArray.indexOf(score) == -1)
+        {
+            symptomsArray.add(score)
+        }
+        else
+        {
+            symptomsArray.remove(score)
+        }
+    }
+    private fun getAllChildren(v: GridView):String {
+        var result:String = "\n"
 
+        for (i in 0 until v.childCount) {
+            result += v[i].toString() + "\n"
+        }
+        return result
+    }
 
     override fun onItemClick(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
 
         var items: SymptomsItem = arrayList!![position]
+        val data = gridView?.let { getAllChildren(it) }
+        Log.i("test", data)
         Toast.makeText(activity?.applicationContext, items.score.toString(), Toast.LENGTH_SHORT).show()
-        if (symptomsArray.indexOf(items.score!!) == -1)
-        {
-            symptomsArray.add(items.score!!)
-        }
-        else
-        {
-            symptomsArray.remove(items.score!!)
-        }
-        Log.i("checklist", symptomsArray.toString())
+        manipulateSymptomsArray(items.score!!)
+        Log.i("symptomsArray", symptomsArray.toString())
     }
 }
+
+
