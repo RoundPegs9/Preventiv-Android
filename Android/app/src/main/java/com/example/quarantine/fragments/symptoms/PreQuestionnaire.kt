@@ -1,6 +1,8 @@
 package com.example.quarantine.fragments.symptoms
 
 import android.content.Intent
+import android.graphics.Color
+import android.os.Build
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -8,6 +10,8 @@ import android.view.ViewGroup
 import android.view.animation.AnimationUtils
 import android.widget.AdapterView
 import android.widget.GridView
+import androidx.annotation.RequiresApi
+import androidx.core.view.get
 import androidx.fragment.app.Fragment
 import com.example.quarantine.AppPreference
 import com.example.quarantine.R
@@ -27,7 +31,8 @@ class PreQuestionnaire : Fragment(), AdapterView.OnItemClickListener {
     private var arrayList:ArrayList<SymptomsItem> ?= null
     private var gridView: GridView ? = null
     private var symptomsAdapters:SymptomsAdapters ? = null
-    private var temp_confidence:Double? = 0.0
+    private var tempId:Int? = -1
+    private var score: Double? = 0.0
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -35,6 +40,7 @@ class PreQuestionnaire : Fragment(), AdapterView.OnItemClickListener {
     ): View? {
         // Inflate the layout for this fragment
         val root = inflater.inflate(R.layout.fragment_symptoms_1, container, false)
+        val appPreference = AppPreference(context!!)
         gridView = root.findViewById(R.id.grid_symptoms_pre_questionnaire)
         arrayList = ArrayList()
         arrayList = setDataList()
@@ -46,22 +52,28 @@ class PreQuestionnaire : Fragment(), AdapterView.OnItemClickListener {
         nxt?.visibility = View.INVISIBLE
 
         nxt?.setOnClickListener{
-            var confidence = AppPreference(context!!).getConfidence()
-            if (confidence == -9F)
+            if (score == 1.0 || score == -1.0)
             {
-
+                //user knows their results. activity launch.
+                appPreference.setOnAppLaunchInfo(1)
+                nextSteps(false, score)
             }
-
+            else
+            {
+                //user needs to take the quiz. fragment launch.
+                appPreference.setOnAppLaunchInfo(0)
+                nextSteps(true, score)
+            }
         }
         return root
     }
 
     private fun setDataList() : ArrayList<SymptomsItem>{
-        var arrayList:ArrayList<SymptomsItem> = ArrayList();
+        val arrayList:ArrayList<SymptomsItem> = ArrayList()
         arrayList.add(SymptomsItem(R.drawable.positive, "Tested Positive with COVID-19", 1.0))
         arrayList.add(SymptomsItem(R.drawable.negative, "Tested Negative with COVID-19", -1.0))
-        arrayList.add(SymptomsItem(R.drawable.not_tested, "Not been tested yet", 0.0))
-        arrayList.add(SymptomsItem(R.drawable.question, "Waiting for test results", 0.5))
+        arrayList.add(SymptomsItem(R.drawable.question, "Not been tested yet", 0.0))
+        arrayList.add(SymptomsItem(R.drawable.waiting, "Waiting for test results", 0.5))
         return arrayList
     }
     companion object {
@@ -74,8 +86,6 @@ class PreQuestionnaire : Fragment(), AdapterView.OnItemClickListener {
     private fun nextSteps(loadSymptoms:Boolean, state: Double?)
     {
         val appPreference = AppPreference(context!!)
-        var confidence = appPreference.getConfidence()
-
         if(loadSymptoms)
         {
             appPreference.setConfidence(state!!.toFloat())
@@ -85,35 +95,42 @@ class PreQuestionnaire : Fragment(), AdapterView.OnItemClickListener {
         {
 
             appPreference.setConfidence(state!!.toFloat())
-            var intent = Intent(context, MainActivity::class.java)
+            val intent = Intent(context, MainActivity::class.java)
             startActivity(intent)
         }
     }
+    @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
+    private fun changeUI(gridView: GridView?, position: Long)
+    {
+        if (tempId != position.toInt())
+        {
+            val cardAnimation = AnimationUtils.loadAnimation(context!!, R.anim.fragment_close_enter)
+            for (i in 0..3) {
+                gridView?.get(i)?.background?.setTint(Color.WHITE)
+            }
+            cardAnimation.duration= 500
+            gridView?.get(position.toInt())?.animation = cardAnimation
+            gridView?.get(position.toInt())?.background?.setTint(resources.getColor(R.color.onClickCard))
+        }
+
+    }
+
     override fun onItemClick(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
         val appPreferences = AppPreference(context!!)
-        var items:SymptomsItem = arrayList!![position]
+        score = arrayList!![position].score
 
-        temp_confidence = items.score
+
         val nxt = activity?.next_button
         val buttonAnimation = AnimationUtils.loadAnimation(context!!, R.anim.fragment_close_enter)
         buttonAnimation.duration = 689
         nxt?.animation = buttonAnimation!!
         nxt?.visibility = View.VISIBLE
 
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            changeUI(this.gridView, id)
+        }
+        tempId = id.toInt()
 
-
-//        if (items.score == 1.0 || items.score == -1.0)
-//        {
-//            //user knows their results. activity launch.
-//            appPreferences.setOnAppLaunchInfo(1)
-//            nextSteps(false, items.score)
-//        }
-//        else
-//        {
-//            //user needs to take the quiz. fragment launch.
-//            appPreferences.setOnAppLaunchInfo(0)
-//            nextSteps(true, items.score)
-//        }
 
     }
 }

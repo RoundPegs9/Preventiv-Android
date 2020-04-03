@@ -11,6 +11,7 @@ import android.widget.AdapterView
 import android.widget.GridView
 import android.widget.Toast
 import androidx.core.view.get
+import androidx.core.view.marginBottom
 import androidx.fragment.app.Fragment
 import com.example.quarantine.AppPreference
 import com.example.quarantine.R
@@ -80,18 +81,18 @@ class MainQuestions : Fragment(), AdapterView.OnItemClickListener {
 
     private fun setDataList() : ArrayList<SymptomsItem>{
         var arrayList:ArrayList<SymptomsItem> = ArrayList();
-        arrayList.add(SymptomsItem(R.drawable.positive, "Dry Cough", 0.879))
-        arrayList.add(SymptomsItem(R.drawable.negative, "High Grade Fever", 0.677))
-        arrayList.add(SymptomsItem(R.drawable.not_tested, "Fatigue", 0.381))
-        arrayList.add(SymptomsItem(R.drawable.question, "Sputum Production", 0.334))
-        arrayList.add(SymptomsItem(R.drawable.question, "Shortness of breath", 0.184))
-        arrayList.add(SymptomsItem(R.drawable.question, "Muscle/Joint Pain", 0.148))
-        arrayList.add(SymptomsItem(R.drawable.question, "Sore Throat", 0.139))
-        arrayList.add(SymptomsItem(R.drawable.question, "Headache", 0.136))
-        arrayList.add(SymptomsItem(R.drawable.question, "Chills", 0.114))
-        arrayList.add(SymptomsItem(R.drawable.question, "Nausea/Vomiting", 0.05))
-        arrayList.add(SymptomsItem(R.drawable.question, "Nasal Congestion", 0.048))
-        arrayList.add(SymptomsItem(R.drawable.question, "Diarrhoea", 0.037))
+        arrayList.add(SymptomsItem(R.drawable.dry_cough, "Continuous Dry Cough", 0.879))
+        arrayList.add(SymptomsItem(R.drawable.fever, "High Grade Fever", 0.677))
+        arrayList.add(SymptomsItem(R.drawable.fatigue, "Fatigue", 0.381))
+        arrayList.add(SymptomsItem(R.drawable.sputum, "Sputum Production", 0.334))
+        arrayList.add(SymptomsItem(R.drawable.breath, "Shortness of breath", 0.184))
+        arrayList.add(SymptomsItem(R.drawable.bodypain, "Muscle/Joint Pain", 0.148))
+        arrayList.add(SymptomsItem(R.drawable.sore_throat, "Sore Throat", 0.139))
+        arrayList.add(SymptomsItem(R.drawable.headache, "Headache", 0.136))
+        arrayList.add(SymptomsItem(R.drawable.chills, "Chills", 0.114))
+        arrayList.add(SymptomsItem(R.drawable.nausea, "Nausea/Vomiting", 0.05))
+        arrayList.add(SymptomsItem(R.drawable.nasal_congestion, "Nasal Congestion", 0.048))
+        arrayList.add(SymptomsItem(R.drawable.diarrehea, "Diarrhea", 0.037))
 
         return arrayList
     }
