@@ -7,11 +7,11 @@
     android:background="#99E4E9ED"
     tools:context=".activities.SymptomsSurvey">
 
-    <FrameLayout
-        android:id="@+id/fragmentContainer_symptoms"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior"/>
+        <FrameLayout
+            android:id="@+id/fragmentContainer_symptoms"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior"/>
 
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
@@ -52,6 +52,24 @@
         app:layout_anchorGravity="end|bottom"
         app:srcCompat="@android:drawable/ic_dialog_info" />
 
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/next_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:background="@drawable/round_button"
+        android:padding="1dp"
+        android:shadowColor="#000"
+        android:shadowRadius="@android:integer/status_bar_notification_info_maxnum"
+        android:text="N E X T"
+        android:textAllCaps="false"
+        android:textColor="#FFF"
+        android:textSize="17sp"
+        app:layout_anchor="@+id/fragmentContainer_symptoms"
+        android:layout_marginBottom="15dp"
+        app:layout_anchorGravity="bottom|center">
+
+    </androidx.appcompat.widget.AppCompatButton>
 
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

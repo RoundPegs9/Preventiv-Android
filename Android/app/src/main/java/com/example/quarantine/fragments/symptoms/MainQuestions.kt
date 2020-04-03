@@ -12,6 +12,7 @@ import android.widget.GridView
 import android.widget.Toast
 import androidx.core.view.get
 import androidx.fragment.app.Fragment
+import com.example.quarantine.AppPreference
 import com.example.quarantine.R
 import com.example.quarantine.activities.MainActivity
 import com.example.quarantine.adapters.SymptomsAdapters
@@ -34,6 +35,7 @@ class MainQuestions : Fragment(), AdapterView.OnItemClickListener {
     private var symptomsArray:ArrayList<Double> = ArrayList()
 
 
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -47,19 +49,32 @@ class MainQuestions : Fragment(), AdapterView.OnItemClickListener {
         gridView?.adapter = symptomsAdapters
         gridView?.onItemClickListener = this
 
+        //hide the next button for now.
+        val nxt = activity?.next_button
+        nxt?.visibility = View.GONE
+
         val fab:FloatingActionButton? = activity?.fab_sym
+
         Log.i("fab", fab.toString())
+
         fab?.setOnClickListener {
             var confidence:Double = 0.0
             symptomsArray.forEach {
                 confidence += it
             }
-
-            var intent: Intent = Intent(context, MainActivity::class.java)
-            intent.putExtra("test", confidence)
-            Log.i("score", confidence.toString())
-            startActivity(intent)
+            val appPreference = AppPreference(context!!)
+           if (confidence >= 1.77) //need to redo this algorithm
+           {
+               //shows signs of the virus
+               appPreference.setConfidence(0.75F)
+           }
+            else
+           {
+             //mild to no symptoms pertaining to the virus.
+               appPreference.setConfidence(0.25F)
+           }
         }
+
         return root
     }
 

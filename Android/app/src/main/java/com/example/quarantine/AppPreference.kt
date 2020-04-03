@@ -18,13 +18,13 @@ class AppPreference(context:Context) {
     fun getOnAppLaunchInfo():Int{
         return preference.getInt(PREFERENCE_APP_LAUNCH_CHOICE,0)
     }
-    fun setConfidence(set_confidence:Int){
+    fun setConfidence(set_confidence:Float){
         val editor = preference.edit()
-        editor.putInt(CONFIDENCE, set_confidence)
+        editor.putFloat(CONFIDENCE, set_confidence)
         editor.apply()
     }
-    fun getConfidence():Int{
-        return preference.getInt(CONFIDENCE, 0)
+    fun getConfidence():Float{
+        return preference.getFloat(CONFIDENCE, -9F)
     }
 
 

@@ -5,16 +5,16 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.animation.AnimationUtils
 import android.widget.AdapterView
 import android.widget.GridView
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.example.quarantine.AppPreference
 import com.example.quarantine.R
 import com.example.quarantine.activities.MainActivity
 import com.example.quarantine.adapters.SymptomsAdapters
 import com.example.quarantine.models.symptoms.SymptomsItem
-import kotlinx.android.synthetic.main.card_view_symptoms_1.*
+import kotlinx.android.synthetic.main.activity_symptoms.*
 
 
 /**
@@ -27,6 +27,8 @@ class PreQuestionnaire : Fragment(), AdapterView.OnItemClickListener {
     private var arrayList:ArrayList<SymptomsItem> ?= null
     private var gridView: GridView ? = null
     private var symptomsAdapters:SymptomsAdapters ? = null
+    private var temp_confidence:Double? = 0.0
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -39,6 +41,18 @@ class PreQuestionnaire : Fragment(), AdapterView.OnItemClickListener {
         symptomsAdapters = activity?.applicationContext?.let { SymptomsAdapters(it, arrayList!!, R.layout.card_view_symptoms_1, R.id.icons, R.id.caption) }
         gridView?.adapter = symptomsAdapters
         gridView?.onItemClickListener = this
+
+        val nxt = activity?.next_button
+        nxt?.visibility = View.INVISIBLE
+
+        nxt?.setOnClickListener{
+            var confidence = AppPreference(context!!).getConfidence()
+            if (confidence == -9F)
+            {
+
+            }
+
+        }
         return root
     }
 
@@ -47,7 +61,7 @@ class PreQuestionnaire : Fragment(), AdapterView.OnItemClickListener {
         arrayList.add(SymptomsItem(R.drawable.positive, "Tested Positive with COVID-19", 1.0))
         arrayList.add(SymptomsItem(R.drawable.negative, "Tested Negative with COVID-19", -1.0))
         arrayList.add(SymptomsItem(R.drawable.not_tested, "Not been tested yet", 0.0))
-        arrayList.add(SymptomsItem(R.drawable.question, "Waiting for test results", 0.0))
+        arrayList.add(SymptomsItem(R.drawable.question, "Waiting for test results", 0.5))
         return arrayList
     }
     companion object {
@@ -57,24 +71,49 @@ class PreQuestionnaire : Fragment(), AdapterView.OnItemClickListener {
         fun newInstance() = PreQuestionnaire()
     }
 
+    private fun nextSteps(loadSymptoms:Boolean, state: Double?)
+    {
+        val appPreference = AppPreference(context!!)
+        var confidence = appPreference.getConfidence()
 
-    override fun onItemClick(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
-        val appPreferences = AppPreference(context!!)
-        var muxState = appPreferences.getOnAppLaunchInfo()
-
-        var items:SymptomsItem = arrayList!![position]
-        if (items.score == 0.0)
+        if(loadSymptoms)
         {
-            muxState = 0
+            appPreference.setConfidence(state!!.toFloat())
             activity?.supportFragmentManager?.beginTransaction()?.replace(R.id.fragmentContainer_symptoms, MainQuestions.newInstance())?.addToBackStack("pre_questions")?.commit()
         }
         else
         {
-            muxState = 1
+
+            appPreference.setConfidence(state!!.toFloat())
             var intent = Intent(context, MainActivity::class.java)
-            intent.putExtra("confidence", items.score)
             startActivity(intent)
         }
-        appPreferences.setOnAppLaunchInfo(muxState)
+    }
+    override fun onItemClick(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
+        val appPreferences = AppPreference(context!!)
+        var items:SymptomsItem = arrayList!![position]
+
+        temp_confidence = items.score
+        val nxt = activity?.next_button
+        val buttonAnimation = AnimationUtils.loadAnimation(context!!, R.anim.fragment_close_enter)
+        buttonAnimation.duration = 689
+        nxt?.animation = buttonAnimation!!
+        nxt?.visibility = View.VISIBLE
+
+
+
+//        if (items.score == 1.0 || items.score == -1.0)
+//        {
+//            //user knows their results. activity launch.
+//            appPreferences.setOnAppLaunchInfo(1)
+//            nextSteps(false, items.score)
+//        }
+//        else
+//        {
+//            //user needs to take the quiz. fragment launch.
+//            appPreferences.setOnAppLaunchInfo(0)
+//            nextSteps(true, items.score)
+//        }
+
     }
 }
