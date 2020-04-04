@@ -18,6 +18,9 @@ import com.example.quarantine.R
 import com.example.quarantine.activities.MainActivity
 import com.example.quarantine.adapters.SymptomsAdapters
 import com.example.quarantine.models.symptoms.SymptomsItem
+import com.google.android.material.floatingactionbutton.FloatingActionButton
+import com.google.android.material.snackbar.Snackbar
+import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.activity_symptoms.*
 
 
@@ -47,11 +50,16 @@ class PreQuestionnaire : Fragment(), AdapterView.OnItemClickListener {
         symptomsAdapters = activity?.applicationContext?.let { SymptomsAdapters(it, arrayList!!, R.layout.card_view_symptoms_1, R.id.icons, R.id.caption) }
         gridView?.adapter = symptomsAdapters
         gridView?.onItemClickListener = this
-
+        val fab: FloatingActionButton? = activity?.fab_sym
+        fab?.setOnClickListener { view ->
+            Snackbar.make(view, "Tap the box you most strongly agree with", Snackbar.LENGTH_LONG)
+                .setAction("Action", null).show()
+        }
         val nxt = activity?.next_button
         nxt?.visibility = View.INVISIBLE
 
         nxt?.setOnClickListener{
+            nxt?.visibility = View.GONE
             if (score == 1.0 || score == -1.0)
             {
                 //user knows their results. activity launch.
@@ -105,13 +113,13 @@ class PreQuestionnaire : Fragment(), AdapterView.OnItemClickListener {
         if (tempId != position.toInt())
         {
             val cardAnimation = AnimationUtils.loadAnimation(context!!, R.anim.fragment_close_enter)
-            for (i in 0..3) {
+            for (i in 0 until arrayList?.size!!) {
                 gridView?.get(i)?.background?.setTint(Color.WHITE)
             }
             cardAnimation.duration= 500
             gridView?.get(position.toInt())?.animation = cardAnimation
-            gridView?.get(position.toInt())?.background?.setTint(resources.getColor(R.color.onClickCard))
         }
+        gridView?.get(position.toInt())?.background?.setTint(resources.getColor(R.color.onClickCard))
 
     }
 
