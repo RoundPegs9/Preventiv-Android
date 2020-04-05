@@ -4,6 +4,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:background="#FFF"
     android:layout_height="match_parent">
 
     <LinearLayout
@@ -23,15 +24,26 @@
 
         <ImageView
             android:layout_width="match_parent"
-            android:layout_height="400dp"
-            android:src="@drawable/positive"
-            android:contentDescription="Logo" />
+            android:layout_height="451dp"
+            android:contentDescription="Logo"
+            android:scaleType="centerCrop"
+            android:src="@drawable/app_logo" />
         <TextView
             android:layout_width="match_parent"
-            android:layout_marginTop="100dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="30dp"
             android:layout_height="wrap_content"
-            android:text="@string/app_name"
+            android:text="WeTrace"
             android:textSize="64sp"
+            android:textAlignment="center"
+            android:textColor="@color/design_default_color_on_secondary"
+            android:gravity="center_horizontal" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_marginTop="10dp"
+            android:layout_height="wrap_content"
+            android:text="Bluetooth Based Intelligent Social Distancing Platform"
+            android:textSize="15sp"
             android:textAlignment="center"
             android:textColor="@color/design_default_color_on_secondary"
             android:gravity="center_horizontal" />
