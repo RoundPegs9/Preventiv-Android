@@ -50,7 +50,7 @@
         android:layout_margin="@dimen/fab_margin"
         app:layout_anchor="@+id/fragmentContainer_symptoms"
         app:layout_anchorGravity="end|bottom"
-        app:srcCompat="@android:drawable/ic_dialog_info" />
+        app:srcCompat="@drawable/info_icon" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/next_button"

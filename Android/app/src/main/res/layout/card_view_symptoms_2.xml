@@ -1,38 +1,65 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    app:cardCornerRadius="8dp"
-    app:cardElevation="5dp"
-    app:cardPreventCornerOverlap="true">
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/box_holder_symptoms"
-        android:padding="10dp">
 
-        <ImageView
-            android:id="@+id/icons_symptoms"
-            android:layout_width="130dp"
-            android:layout_height="130dp"
-            android:layout_marginLeft="5dp"
-            android:layout_marginTop="0dp"
-            android:layout_centerHorizontal="true"
-            android:contentDescription="graph of the symptom"
-            android:src="@drawable/positive"/>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/main_symptoms_view"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="250dp"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_marginRight="8dp"
+    android:layout_marginLeft="8dp"
+    android:layout_marginBottom="40dp"
+    app:cardCornerRadius="8dp"
+    tools:context=".fragments.symptoms.MainSymptoms"
+    app:cardElevation="4dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraint_card"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/icons_symptoms"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="0dp"
+                android:scaleType="centerCrop"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/fever"/>
+
+            <ImageView
+                android:id="@+id/cross_overlay"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:visibility="invisible"
+                android:orientation="vertical"
+                android:scaleType="centerInside"
+                app:layout_constraintBottom_toBottomOf="@+id/icons_symptoms"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/icons_symptoms"
+                app:layout_constraintTop_toTopOf="@+id/icons_symptoms"
+                app:srcCompat="@drawable/cross_overlay" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
         <TextView
             android:id="@+id/caption_symptoms"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Dry Coughs"
-            android:layout_below="@id/icons_symptoms"
-            android:layout_centerInParent="true"
-            android:textAllCaps="false"
-            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="High Grade Fever"
+            android:textAlignment="center"
+            android:textSize="15dp"
             android:textStyle="bold"
-            android:padding="5dp"
-            android:layout_marginTop="10dp"/>
-    </RelativeLayout>
+            android:layout_marginBottom="20dp"
+            android:gravity="bottom|center" />
 
-</androidx.cardview.widget.CardView>
+    </androidx.cardview.widget.CardView>

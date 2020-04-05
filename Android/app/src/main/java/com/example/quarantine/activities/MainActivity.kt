@@ -2,11 +2,13 @@ package com.example.quarantine.activities
 
 import android.os.Bundle
 import android.util.Log
+import android.widget.Toast
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.tabs.TabLayout
 import androidx.viewpager.widget.ViewPager
 import androidx.appcompat.app.AppCompatActivity
+import com.example.quarantine.AppPreference
 import com.example.quarantine.R
 import com.example.quarantine.adapters.SectionsPagerAdapter
 import kotlinx.android.synthetic.main.activity_main.*
@@ -21,9 +23,10 @@ class MainActivity : AppCompatActivity() {
                 this,
                 this.supportFragmentManager
             )
-        val bundle: Bundle? = intent.extras
-        val confidence = bundle?.getDouble("confidence")
-        Log.i("received", confidence.toString())
+        val appPreferences = AppPreference(this)
+        val confidence = appPreferences.getConfidence()
+
+        Toast.makeText(this.applicationContext, confidence.toString(), Toast.LENGTH_SHORT).show()
 
         val viewPager: ViewPager = findViewById(R.id.view_pager)
 

@@ -28,21 +28,6 @@ class SymptomsAdapters(var context: Context, var arrayList: ArrayList<SymptomsIt
         return view
     }
 
-    fun setBackground(view: View?, position: Int, state:Boolean)
-    {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            if (state)
-            {
-                //change background.
-                view?.background?.setTint(Color.argb(100,167,191,167))
-            }
-            else
-            {
-                view?.background?.setTint(Color.WHITE)
-            }
-        }
-
-    }
     override fun getItem(position: Int): Any {
         return arrayList[position]
     }

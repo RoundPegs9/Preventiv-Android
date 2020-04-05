@@ -1,6 +1,7 @@
 package com.example.quarantine.fragments.symptoms
 
 import android.content.Intent
+import android.content.res.ColorStateList
 import android.graphics.Color
 import android.os.Build
 import android.os.Bundle
@@ -51,7 +52,9 @@ class PreQuestionnaire : Fragment(), AdapterView.OnItemClickListener {
         gridView?.adapter = symptomsAdapters
         gridView?.onItemClickListener = this
         val fab: FloatingActionButton? = activity?.fab_sym
-        fab?.setOnClickListener { view ->
+        fab!!.backgroundTintList = ColorStateList.valueOf(Color.parseColor("#E3D3A429"))
+        fab.setImageResource(R.drawable.info_icon)
+        fab.setOnClickListener { view ->
             Snackbar.make(view, "Tap the box you most strongly agree with", Snackbar.LENGTH_LONG)
                 .setAction("Action", null).show()
         }
@@ -97,7 +100,7 @@ class PreQuestionnaire : Fragment(), AdapterView.OnItemClickListener {
         if(loadSymptoms)
         {
             appPreference.setConfidence(state!!.toFloat())
-            activity?.supportFragmentManager?.beginTransaction()?.replace(R.id.fragmentContainer_symptoms, MainQuestions.newInstance())?.addToBackStack("pre_questions")?.commit()
+            activity?.supportFragmentManager?.beginTransaction()?.replace(R.id.fragmentContainer_symptoms, MainSymptoms.newInstance())?.addToBackStack("pre_questions")?.commit()
         }
         else
         {
@@ -124,7 +127,6 @@ class PreQuestionnaire : Fragment(), AdapterView.OnItemClickListener {
     }
 
     override fun onItemClick(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
-        val appPreferences = AppPreference(context!!)
         score = arrayList!![position].score
 
 
