@@ -1,32 +1,27 @@
-package com.example.quarantine.ui.main
+package com.example.quarantine.adapters
 
 import android.content.Context
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter
 import com.example.quarantine.R
+import com.example.quarantine.ui.main.PlaceholderFragment
 
 private val TAB_TITLES = arrayOf(
         R.string.tab_text_1,
         R.string.tab_text_2,
         R.string.tab_text_3
 )
+
+
 /**
  * A [FragmentPagerAdapter] that returns a fragment corresponding to
  * one of the sections/tabs/pages.
  */
-class SectionsPagerAdapter(private val context: Context, fm: FragmentManager)
+class SectionsPagerAdapter(private val context: Context, private val fm: FragmentManager)
     : FragmentPagerAdapter(fm) {
-
     override fun getItem(position: Int): Fragment {
-        // getItem is called to instantiate the fragment for the given page.
-        // Return a PlaceholderFragment (defined as a static inner class below).
-        when(position)
-        {
-            0-> return TestFragment()
-            1-> return PlaceholderFragment.newInstance(1)
-            else -> return PlaceholderFragment.newInstance(2)
-        }
+        return PlaceholderFragment.newInstance(position+1)
     }
 
     override fun getPageTitle(position: Int): CharSequence? {

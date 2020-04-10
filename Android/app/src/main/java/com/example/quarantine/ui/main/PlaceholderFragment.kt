@@ -4,10 +4,10 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
+import android.widget.Toast
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
+import com.example.quarantine.AppPreference
 import com.example.quarantine.R
 
 /**
@@ -28,11 +28,16 @@ class PlaceholderFragment : Fragment() {
             inflater: LayoutInflater, container: ViewGroup?,
             savedInstanceState: Bundle?
     ): View? {
-        val root = inflater.inflate(R.layout.fragment_symptoms, container, false)
+        val root = inflater.inflate(R.layout.activity_launch, container, false)
 //        val textView: TextView = root.findViewById(R.id.section_label)
 //        pageViewModel.text.observe(viewLifecycleOwner, Observer<String> {
 //            textView.text = it
 //        })
+        val appPreferences = AppPreference(this.context!!)
+        val confidence = appPreferences.getConfidence()
+
+        Toast.makeText(this.context!!, confidence.toString(), Toast.LENGTH_SHORT).show()
+
         return root
     }
 

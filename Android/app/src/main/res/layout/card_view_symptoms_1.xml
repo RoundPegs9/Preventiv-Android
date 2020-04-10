@@ -9,27 +9,30 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:id="@+id/box_holder_symptoms"
         android:padding="10dp">
     <ImageView
         android:id="@+id/icons"
-        android:layout_width="90dp"
-        android:layout_height="90dp"
-        android:layout_marginLeft="35dp"
-        android:layout_marginRight="35dp"
-        android:layout_marginTop="5dp"
-        android:src="@drawable/day1_reflection"
+        android:layout_width="170dp"
+        android:layout_height="170dp"
+        android:layout_marginLeft="5dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="0dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/positive"
         android:contentDescription="graph of the symptom" />
     <TextView
         android:id="@+id/caption"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Tested Positive"
+        android:text="Tested; waiting for results"
         android:layout_below="@id/icons"
-        android:layout_marginLeft="30dp"
+        android:layout_centerInParent="true"
+        android:textAllCaps="true"
         android:gravity="center"
         android:textStyle="bold"
-        android:layout_marginTop="10dp"
-        />
+        android:padding="@dimen/activity_horizontal_margin"
+        android:layout_marginTop="10dp"/>
     </RelativeLayout>
 
 </androidx.cardview.widget.CardView>
