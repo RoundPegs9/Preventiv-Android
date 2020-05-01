@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "16989189429",
+    "firebase_url": "https://preventiv-covid19.firebaseio.com",
+    "project_id": "preventiv-covid19",
+    "storage_bucket": "preventiv-covid19.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:16989189429:android:b06ce45743dba2ddc7487c",
+        "android_client_info": {
+          "package_name": "com.example.quarantine"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "16989189429-v4cc341b1l1el7hgsrmq47hk6qcnudnj.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.quarantine",
+            "certificate_hash": "1bce4583f8f706f99f81f4b9d88baad2f6a4c032"
+          }
+        },
+        {
+          "client_id": "16989189429-l459nel6rrmlq7ap50b1paq7m8lg4ld8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCtqccalBxR_vB5oiF446MBPQuAAwvY6IA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "16989189429-l459nel6rrmlq7ap50b1paq7m8lg4ld8.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

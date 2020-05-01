@@ -5,13 +5,13 @@ import android.content.res.ColorStateList
 import android.graphics.Color
 import android.os.Build
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.animation.AnimationUtils
 import android.widget.AdapterView
 import android.widget.GridView
-import androidx.annotation.RequiresApi
 import androidx.core.view.get
 import androidx.fragment.app.Fragment
 import com.example.quarantine.AppPreference
@@ -21,8 +21,8 @@ import com.example.quarantine.adapters.SymptomsAdapters
 import com.example.quarantine.models.symptoms.SymptomsItem
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.snackbar.Snackbar
-import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.activity_symptoms.*
+import kotlin.math.abs
 
 
 /**
@@ -37,6 +37,7 @@ class PreQuestionnaire : Fragment(), AdapterView.OnItemClickListener {
     private var symptomsAdapters:SymptomsAdapters ? = null
     private var tempId:Int? = -1
     private var score: Double? = 0.0
+    private val TAG = "PreQuestionnaire"
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -63,7 +64,7 @@ class PreQuestionnaire : Fragment(), AdapterView.OnItemClickListener {
 
         nxt?.setOnClickListener{
             nxt?.visibility = View.GONE
-            if (score == 1.0 || score == -1.0)
+            if (score?.let { it1 -> abs(it1) } == 1.0)
             {
                 //user knows their results. activity launch.
                 appPreference.setOnAppLaunchInfo(1)
@@ -76,6 +77,7 @@ class PreQuestionnaire : Fragment(), AdapterView.OnItemClickListener {
                 nextSteps(true, score)
             }
         }
+
         return root
     }
 
@@ -110,7 +112,6 @@ class PreQuestionnaire : Fragment(), AdapterView.OnItemClickListener {
             startActivity(intent)
         }
     }
-    @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
     private fun changeUI(gridView: GridView?, position: Long)
     {
         if (tempId != position.toInt())
@@ -129,18 +130,48 @@ class PreQuestionnaire : Fragment(), AdapterView.OnItemClickListener {
     override fun onItemClick(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
         score = arrayList!![position].score
 
+        Log.i("GridClick", Build.VERSION.SDK_INT.toString())
+        Log.i("GridClick", score.toString())
 
         val nxt = activity?.next_button
-        val buttonAnimation = AnimationUtils.loadAnimation(context!!, R.anim.fragment_close_enter)
-        buttonAnimation.duration = 689
-        nxt?.animation = buttonAnimation!!
-        nxt?.visibility = View.VISIBLE
 
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+
+
+        if (Build.VERSION.SDK_INT > Build.VERSION_CODES.O) {
+            val buttonAnimation = AnimationUtils.loadAnimation(context!!, R.anim.fragment_close_enter)
+            buttonAnimation.duration = 689
+            nxt?.animation = buttonAnimation!!
+            nxt?.visibility = View.VISIBLE
+        }
+        else //convert FAB to next button for versions <= 26
+        {
+            //change fab...
+            val fab: FloatingActionButton? = activity?.fab_sym
+            fab!!.backgroundTintList = ColorStateList.valueOf(Color.parseColor("#7AB547"))
+            fab!!.setImageResource(R.drawable.next_icon)
+
+            fab?.setOnClickListener{
+                if (score?.let { it1 -> abs(it1) } == 1.0)
+                {
+                    //user knows their results. activity launch.
+                    context?.let { AppPreference(it).setOnAppLaunchInfo(1) }
+                    nextSteps(false, score)
+                }
+                else
+                {
+                    //user needs to take the quiz. fragment launch.
+                    context?.let { AppPreference(it).setOnAppLaunchInfo(0) }
+
+                    nextSteps(true, score)
+                }
+            }
+
+        }
+
+        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP)
+        {
             changeUI(this.gridView, id)
         }
         tempId = id.toInt()
-
-
     }
 }

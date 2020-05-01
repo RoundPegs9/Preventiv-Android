@@ -1,5 +1,7 @@
 package com.example.quarantine.fragments.symptoms
 
+import android.content.res.ColorStateList
+import android.graphics.Color
 import com.example.quarantine.adapters.SymptomsRecyclerAdapter
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -11,7 +13,9 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.quarantine.R
 import com.example.quarantine.models.symptoms.SymptomsItem
-
+import com.google.android.material.floatingactionbutton.FloatingActionButton
+import com.google.android.material.snackbar.Snackbar
+import kotlinx.android.synthetic.main.activity_symptoms.*
 
 
 class MainSymptoms: Fragment() {
@@ -26,17 +30,30 @@ class MainSymptoms: Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        recyclerView?.layoutManager = linearLayoutManager
-        val root = inflater.inflate(R.layout.fragment_symptoms_2, container, false)
+        linearLayoutManager = LinearLayoutManager(context)
+        val root = inflater.inflate(R.layout.fragment_recycler, container, false)
         recyclerView = root.findViewById(R.id.recycler_symptoms_main)
+        recyclerView?.layoutManager = linearLayoutManager
         arrayList = ArrayList()
         arrayList = setDataList()
+
+        /**
+         * On Create Floating Action Button Characteristics
+         */
+        val fab: FloatingActionButton? = activity?.fab_sym
+        fab?.backgroundTintList = ColorStateList.valueOf(Color.parseColor("#E3D3A429"))
+        fab?.setImageResource(R.drawable.info_icon)
+        fab?.setOnClickListener{
+            Snackbar.make(it, "Check all symptoms you've had in the past 14 days", Snackbar.LENGTH_LONG)
+                .setAction("Action", null).show()
+        }
 
         val llm = GridLayoutManager(this.context, 2)
         recyclerView?.layoutManager = llm
         symptomsAdapters = activity?.applicationContext?.let {
             SymptomsRecyclerAdapter(this.activity!!, this.context!!, arrayList!!)
         }
+
         recyclerView?.adapter = symptomsAdapters
         return root
     }
@@ -63,7 +80,6 @@ class MainSymptoms: Fragment() {
         /**
          * Dynamically Creates a new instance of [MainSymptoms] class
          */
-
         fun newInstance() = MainSymptoms()
     }
 

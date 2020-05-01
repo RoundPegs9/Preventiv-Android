@@ -1,15 +1,11 @@
 package com.example.quarantine.adapters
 
 import android.content.Context
-import android.graphics.Color
-import android.os.Build
 import android.view.View
 import android.view.ViewGroup
 import android.widget.BaseAdapter
 import android.widget.ImageView
 import android.widget.TextView
-import androidx.annotation.RequiresApi
-import com.example.quarantine.R
 import com.example.quarantine.models.symptoms.SymptomsItem
 
 class SymptomsAdapters(var context: Context, var arrayList: ArrayList<SymptomsItem>, private val inflater:Int, private val icons:Int, private val caption:Int): BaseAdapter() {
