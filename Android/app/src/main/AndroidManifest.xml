@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.example.quarantine">
+    package="ml.preventiv">
 
     <!--
          The ACCESS_COARSE/FINE_LOCATION permissions are not required to use
@@ -22,20 +22,13 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@drawable/preventiv"
+        android:icon="@drawable/app_logo"
         android:label="@string/app_name"
-        android:roundIcon="@drawable/preventiv"
+        android:roundIcon="@drawable/app_logo"
+        android:allowClearUserData="false"
         android:supportsRtl="true"
         android:theme="@style/AppTheme.NoActionBar">
 
-        <!--
-             The API key for Google Maps-based APIs is defined as a string resource.
-             (See the file "res/values/google_maps_api.xml").
-             Note that the API key is linked to the encryption key used to sign the APK.
-             You need a different API key for each encryption key, including the release key that is used to
-             sign the APK for publishing.
-             You can define the keys for the debug and release targets in src/debug/ and src/release/.
-        -->
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="@string/google_maps_key" />
@@ -57,7 +50,9 @@
             android:screenOrientation="sensorPortrait"
             tools:ignore="LockedOrientationActivity" />
         <activity android:name=".activities.SymptomsSurvey" />
-        <activity android:name=".onboarding.OnBoardingActivity" /> <!-- OnBoarding (only delivered once) -->
+        <activity android:name=".onboarding.OnBoardingActivity"
+            android:screenOrientation="sensorPortrait"
+            tools:ignore="LockedOrientationActivity" /> <!-- OnBoarding (only delivered once) -->
         <service
             android:name=".bluetooth.foreground.FService"
             android:enabled="true"

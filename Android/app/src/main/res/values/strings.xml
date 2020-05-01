@@ -4,8 +4,8 @@
     <string name="tab_text_2">Alerts</string>
     <string name="tab_text_3">Heat Map</string>
 
-    <string name="msg_notification_service_desc">Intelligent Bluetooth Based Contact Tracing to Prevent the Curb of the Virus. See how your neighborhood is doing.</string>
-    <string name="title_foreground_service_notification">COVID-19 Privacy first scanner turned on</string>
+    <string name="msg_notification_service_desc">Preventiv will alert you if someone nearby you has COVID-19 or is showing symptoms of it.</string>
+    <string name="title_foreground_service_notification">Bluetooth Privacy Scanner turned on</string>
     <string name="lbl_btn_sticky_notification_open_app">Open Application</string>
     <string name="txt_home">Hello World</string>
     <string name="lbl_home">Received Text</string>
@@ -16,6 +16,6 @@
     <string name="address">Address</string>
     <string name="map">Map</string>
     <string name="title_activity_maps_marker">Map</string>
-    <string name="contract_digital_sign">By using this app, you agree to provide correct and most relevant information to the best of your knowledge.</string>
+    <string name="contract_digital_sign">By using this app, you agree to provide accurate and most relevant information to the best of your knowledge.</string>
 
 </resources>
