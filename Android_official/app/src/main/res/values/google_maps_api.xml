@@ -1,4 +1,0 @@
-<resources>
-    <!--  Google Maps API Key for Heat Maps  -->
-    <string name="google_maps_key" templateMergeStrategy="preserve" translatable="false">AIzaSyCtqccalBxR_vB5oiF446MBPQuAAwvY6IA</string>
-</resources>
