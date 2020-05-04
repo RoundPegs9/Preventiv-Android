@@ -95,27 +95,6 @@ class OnBoardingActivity:AppCompatActivity() {
         )
         mList.add(
             ScreenItem(
-                "Preventiv Basics : 1",
-                "To start using Preventiv, select the card that best describes how you've felt over the past 2 weeks.",
-                R.drawable.tutorial_1
-            )
-        )
-        mList.add(
-            ScreenItem(
-                "Preventiv Basics : 2",
-                "If you haven't been tested for COVID-19 or are waiting for your test results, select all symptoms you've been experiencing in the past 14 days.",
-                R.drawable.tutorial_2
-            )
-        )
-        mList.add(
-            ScreenItem(
-                "Preventiv Basics : 3",
-                "Enable Bluetooth scanning to identify who near you is infected from the virus. Preventiv scans in the background without draining your phone's battery.",
-                R.drawable.tutorial_3
-            )
-        )
-        mList.add(
-            ScreenItem(
                 "WE CAN DO IT",
                 "Let's fight this virus together by being proactive on how we distance ourselves so we can return back to normal. It takes change to make change!",
                 R.drawable.we_can_do_it
