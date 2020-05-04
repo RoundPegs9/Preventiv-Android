@@ -72,9 +72,9 @@ class SymptomsFragment: Fragment() {
             val how = root.findViewById<TextView>(R.id.how_does_it_work)
             val privacy = root.findViewById<TextView>(R.id.privacy)
             val faq = root.findViewById<TextView>(R.id.faq)
-            toggleVisibility(how, "how_does_preventiv_work")
-            toggleVisibility(privacy, "privacy")
-            toggleVisibility(faq, "faq")
+            toggleVisibility(how, "https://www.youtube.com/watch?v=VffokuToaPI&list=PLGSbYGhGpgY4WSVJoe6sACOEOr9q8eXbF")
+            toggleVisibility(privacy, "https://docs.google.com/document/d/1uOELBfaPc0aFA9LJ6nT0eVy9KTDqssUHFdFhTsNa_kA/edit")
+            toggleVisibility(faq, "https://docs.google.com/document/d/1kdHyFon6nyloNoUQX1D1T8Kz6e2-72hjqePatxY-duY/edit?usp=sharing")
         }
         val statusUserFriendlyText = root.findViewById<TextView>(R.id.type_user)
         statusUserFriendlyText.text = setTextCOVID(appPreference.getConfidence())
@@ -100,9 +100,8 @@ class SymptomsFragment: Fragment() {
             textView.startAnimation(animation)
             textView.visibility = View.VISIBLE
             textView.setOnClickListener {
-                val url = "https://preventiv.ml/$linkOnClickListener"
                 val i = Intent(Intent.ACTION_VIEW)
-                i.data = Uri.parse(url)
+                i.data = Uri.parse(linkOnClickListener)
                 startActivity(i)
             }
         }else

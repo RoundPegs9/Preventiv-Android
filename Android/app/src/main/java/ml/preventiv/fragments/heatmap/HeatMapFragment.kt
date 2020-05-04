@@ -169,7 +169,7 @@ class HeatMapFragment : Fragment(), OnMapReadyCallback {
 
     override fun onMapReady(googleMap: GoogleMap) {
         mMap = googleMap
-        mMap.setMaxZoomPreference(15F)
+        mMap.setMaxZoomPreference(14F)
 
         /**
          * Add all geolocation onto the map.

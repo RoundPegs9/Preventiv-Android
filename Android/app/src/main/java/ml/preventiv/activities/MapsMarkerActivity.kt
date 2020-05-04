@@ -97,7 +97,7 @@ class MapsMarkerActivity : AppCompatActivity(), OnMapReadyCallback {
 
         mMap.addMarker(MarkerOptions().position(LatLng(data!!.latitude, data.longitude)).title(locationString.split(",")[0]))
         mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(LatLng(data.latitude, data.longitude), 15F))
-        mMap.setMaxZoomPreference(18F)
+        mMap.setMaxZoomPreference(15F)
         mMap.addCircle(
             CircleOptions()
                 .center(LatLng(data.latitude, data.longitude))
