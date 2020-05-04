@@ -5,6 +5,7 @@ import android.content.Context
 import android.content.Intent
 import android.content.res.ColorStateList
 import android.graphics.Color
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -48,7 +49,7 @@ class SymptomsRecyclerAdapter(val activity: Activity, val context:Context, priva
 
         private var view : View = v
         private var symptom : SymptomsItem? = null
-        private var fab:FloatingActionButton? = activity?.fab_sym
+        private var fab:FloatingActionButton? = activity.fab_sym
 
         init {
             v.setOnClickListener{
@@ -62,7 +63,7 @@ class SymptomsRecyclerAdapter(val activity: Activity, val context:Context, priva
         }
         private fun decorumFab()
         {
-            if(symptomsArrayListTemplate!!.size > 0)
+            if(symptomsArrayListTemplate.size > 0)
             {
                 fab!!.backgroundTintList = ColorStateList.valueOf(Color.parseColor("#7AB547"))
                 fab!!.setImageResource(R.drawable.next_icon)
@@ -80,7 +81,7 @@ class SymptomsRecyclerAdapter(val activity: Activity, val context:Context, priva
                 confidence += it!!
             }
             val appPreference = AppPreference(context!!)
-            if (confidence >= 1.33) //need to redo this algorithm
+            if (confidence >= 1.63) //need to redo this algorithm
             {
                 //shows signs of the virus
                 appPreference.setConfidence(0.75F)
@@ -94,7 +95,7 @@ class SymptomsRecyclerAdapter(val activity: Activity, val context:Context, priva
             {
                 appPreference.setOnAppLaunchInfo(1)
                 val intent = Intent(context, MainActivity::class.java)
-                activity?.startActivity(intent)
+                activity.startActivity(intent)
             }
             else
             {
@@ -109,18 +110,18 @@ class SymptomsRecyclerAdapter(val activity: Activity, val context:Context, priva
             {
                 symptomsView.forEach {
                     it?.cross_overlay?.visibility = View.INVISIBLE
-                    it?.icons_symptoms?.alpha = 1.0F
+                    it?.constraint_card?.setBackgroundColor(Color.parseColor("#FFFFFF"))
                 }
             }
             if (state){
 
                 view.cross_overlay?.visibility = View.VISIBLE
-                view.icons_symptoms?.alpha = 0.3F
+                view.constraint_card?.setBackgroundColor(Color.parseColor("#DCDCDC"))
             }
             else
             {
                 view.cross_overlay?.visibility = View.INVISIBLE
-                view.icons_symptoms?.alpha = 1.0F
+                view.constraint_card?.setBackgroundColor(Color.parseColor("#FFFFFF"))
             }
         }
         private fun manipulateSymptomsArray(score:Double?, pos: Int) {
@@ -140,7 +141,7 @@ class SymptomsRecyclerAdapter(val activity: Activity, val context:Context, priva
                         symptomsMainList.remove(0)
 
                         symptomsView[0]?.cross_overlay?.visibility = View.INVISIBLE
-                        symptomsView[0]?.icons_symptoms?.alpha = 1.0F
+                        symptomsView[0]?.constraint_card?.setBackgroundColor(Color.parseColor("#FFFFFF"))
                     }
 
                     changeUI(state = true, isZero = false)
@@ -159,7 +160,7 @@ class SymptomsRecyclerAdapter(val activity: Activity, val context:Context, priva
         {
             this.symptom = symptom
             view.caption_symptoms.text = symptom.caption
-            symptom.icons?.let { view.icons_symptoms.setImageResource(it) }
+            view.constraint_card.setBackgroundColor(Color.parseColor("#FFFFFF"))
 
             if (symptomsMainList.size > 0)
             {
