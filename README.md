@@ -4,3 +4,6 @@
 #### Only solution ever to exist inlcuding multi-hierarchical contact tracing
 
 <p> Credit the Authors @ <a href="https://www.github.com/QasimWani">Qasim Wani: github.com/QasimWani</a> and  <a href="https://www.github.com/SaiG18">Sai Gurrapu: github.com/SaiG18 </a></p>
+
+
+<p> To get this project to work, you must register your own Firestore key for googleservices.json in the app/ folder after cloning the repository.</p>
