@@ -22,8 +22,8 @@ def init():
 
 def main():
     br = init()
-    br.find_element_by_id("login_field").send_keys("qasim31wani@gmail.com")
-    br.find_element_by_id("password").send_keys("InfinitumA1")
+    br.find_element_by_id("login_field").send_keys("email")
+    br.find_element_by_id("password").send_keys("pass")
     button = br.find_element_by_class_name("btn.btn-primary.btn-block")
     button.click()
 
