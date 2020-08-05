@@ -19,5 +19,6 @@ To get this project to work, you must add your own Firestore key in the <a href=
 
 
 
-![preventiv](https://user-images.githubusercontent.com/9091157/88198702-f7ac5c80-cc11-11ea-84df-508afa8608c5.png)
+![5BA05FA6-19EB-4C72-AA9C-1EE89DAE77E2](https://user-images.githubusercontent.com/9091157/89446716-e3448580-d722-11ea-9b50-92f5ea960bbc.JPG)
+
 
